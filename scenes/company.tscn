@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=1]
+
+[ext_resource path="res://scripts/company.gd" type="Script" id=1]
+
+[node name="company" type="Area2D"]
+
+input/pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+script/script = ExtResource( 1 )
+size = Vector2( 10, 10 )
+separation = Vector2( 10, 10 )
+men_speed = 80
+groupname = "allies"
+
+

@@ -1,0 +1,289 @@
+[gd_scene load_steps=7 format=1]
+
+[ext_resource path="res://scripts/main.gd" type="Script" id=1]
+[ext_resource path="res://gameart/good_neighbors.fnt" type="BitmapFont" id=2]
+
+[sub_resource type="Animation" id=1]
+
+resource/name = "fade_in"
+length = 0.3
+loop = false
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("right:transform/pos")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = { "times":FloatArray( 0, 0.3 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ Vector2( 169, 0 ), Vector2( 382, 0 ) ] }
+tracks/1/type = "value"
+tracks/1/path = NodePath("left:transform/pos")
+tracks/1/interp = 1
+tracks/1/imported = false
+tracks/1/keys = { "times":FloatArray( 0, 0.3 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ Vector2( -166, 0 ), Vector2( -353, 0 ) ] }
+
+[sub_resource type="Animation" id=2]
+
+resource/name = "fade_out"
+length = 0.3
+loop = false
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("right:transform/pos")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = { "times":FloatArray( 0, 0.3 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ Vector2( 373, 0 ), Vector2( 169, 0 ) ] }
+tracks/1/type = "value"
+tracks/1/path = NodePath("left:transform/pos")
+tracks/1/interp = 1
+tracks/1/imported = false
+tracks/1/keys = { "times":FloatArray( 0, 0.3 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ Vector2( -344, 0 ), Vector2( -166, 0 ) ] }
+
+[sub_resource type="Animation" id=3]
+
+length = 0.5
+loop = false
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:stream/volume_db")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = { "times":FloatArray( 0, 0.45 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ 0.0, -80.0 ] }
+
+[sub_resource type="Animation" id=4]
+
+length = 1.0
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:stream/volume_db")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = { "times":FloatArray( 0 ), "transitions":FloatArray( 1 ), "update":0, "values":[ 0.0 ] }
+
+[node name="main" type="Node2D"]
+
+script/script = ExtResource( 1 )
+
+[node name="map" type="Node2D" parent="."]
+
+[node name="HUD_Layer" type="CanvasLayer" parent="."]
+
+layer = 2
+offset = Vector2( 0, 0 )
+rotation = 0.0
+scale = Vector2( 1, 1 )
+
+[node name="hud" type="Node2D" parent="HUD_Layer"]
+
+editor/display_folded = true
+__meta__ = { "_edit_lock_":true }
+
+[node name="Polygon2D" type="Polygon2D" parent="HUD_Layer/hud"]
+
+polygon = Vector2Array( 0, 0, 155, 0, 155, 41, 0, 41 )
+uv = Vector2Array(  )
+color = Color( 1, 1, 1, 0.489882 )
+vertex_colors = ColorArray(  )
+offset = Vector2( 0, 0 )
+texture/texture = null
+texture/offset = Vector2( 0, 0 )
+texture/scale = Vector2( 1, 1 )
+texture/rotation = 0.0
+invert/enable = false
+invert/border = 100.0
+__meta__ = { "_edit_lock_":true }
+
+[node name="GridContainer" type="GridContainer" parent="HUD_Layer/hud"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = false
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 159.0
+margin/bottom = 42.0
+custom_constants/hseparation = 23
+columns = 2
+__meta__ = { "_edit_lock_":true }
+
+[node name="Nazi Casualties Label" type="Label" parent="HUD_Layer/hud/GridContainer"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 94.0
+margin/bottom = 10.0
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Nazi Jerks"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="nazi_casualties" type="Label" parent="HUD_Layer/hud/GridContainer"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 117.0
+margin/top = 0.0
+margin/right = 150.0
+margin/bottom = 10.0
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "000"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Allied Casualties Label" type="Label" parent="HUD_Layer/hud/GridContainer"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 0.0
+margin/top = 14.0
+margin/right = 94.0
+margin/bottom = 24.0
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Allied Heroes"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="allied_casualties" type="Label" parent="HUD_Layer/hud/GridContainer"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 117.0
+margin/top = 14.0
+margin/right = 150.0
+margin/bottom = 24.0
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "000"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Time Label" type="Label" parent="HUD_Layer/hud/GridContainer"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 0.0
+margin/top = 28.0
+margin/right = 94.0
+margin/bottom = 38.0
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Time"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="time" type="Label" parent="HUD_Layer/hud/GridContainer"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 117.0
+margin/top = 28.0
+margin/right = 150.0
+margin/bottom = 38.0
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "01:00"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="fader" type="Node2D" parent="HUD_Layer"]
+
+editor/display_folded = true
+
+[node name="right" type="Polygon2D" parent="HUD_Layer/fader"]
+
+transform/pos = Vector2( 382, 0 )
+polygon = Vector2Array( -42, -34, 331, -34, 331, 254, -41, 255 )
+uv = Vector2Array(  )
+color = Color( 0, 0, 0, 1 )
+vertex_colors = ColorArray(  )
+offset = Vector2( 0, 0 )
+texture/texture = null
+texture/offset = Vector2( 0, 0 )
+texture/scale = Vector2( 1, 1 )
+texture/rotation = 0.0
+invert/enable = false
+invert/border = 100.0
+
+[node name="left" type="Polygon2D" parent="HUD_Layer/fader"]
+
+transform/pos = Vector2( -352, 0 )
+polygon = Vector2Array( -42, -34, 331, -34, 331, 254, -41, 255 )
+uv = Vector2Array(  )
+color = Color( 0, 0, 0, 1 )
+vertex_colors = ColorArray(  )
+offset = Vector2( 0, 0 )
+texture/texture = null
+texture/offset = Vector2( 0, 0 )
+texture/scale = Vector2( 1, 1 )
+texture/rotation = 0.0
+invert/enable = false
+invert/border = 100.0
+
+[node name="anim" type="AnimationPlayer" parent="HUD_Layer/fader"]
+
+playback/process_mode = 1
+playback/default_blend_time = 0.0
+root/root = NodePath("..")
+anims/fade_in = SubResource( 1 )
+anims/fade_out = SubResource( 2 )
+playback/active = true
+playback/speed = 1.0
+blend_times = [  ]
+autoplay = ""
+
+[node name="loadtimer" type="Timer" parent="."]
+
+process_mode = 1
+wait_time = 1.0
+one_shot = true
+autostart = false
+
+[node name="music" type="StreamPlayer" parent="."]
+
+stream/stream = null
+stream/play = false
+stream/loop = true
+stream/volume_db = 0.0
+stream/autoplay = false
+stream/paused = false
+stream/loop_restart_time = 0.0
+stream/buffering_ms = 500
+
+[node name="anim" type="AnimationPlayer" parent="music"]
+
+playback/process_mode = 1
+playback/default_blend_time = 0.0
+root/root = NodePath("..")
+anims/fade_out = SubResource( 3 )
+anims/on = SubResource( 4 )
+playback/active = true
+playback/speed = 1.0
+blend_times = [  ]
+autoplay = ""
+
+[connection signal="timeout" from="loadtimer" to="." method="_on_loadtimer_timeout"]
+
+

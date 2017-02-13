@@ -1,0 +1,185 @@
+[gd_scene load_steps=5 format=1]
+
+[ext_resource path="res://scripts/credits.gd" type="Script" id=1]
+[ext_resource path="res://gameart/3y6Avm.jpg" type="Texture" id=2]
+[ext_resource path="res://gameart/good_neighbors.fnt" type="BitmapFont" id=3]
+[ext_resource path="res://gameart/godot.png" type="Texture" id=4]
+
+[node name="credits" type="Node2D"]
+
+script/script = ExtResource( 1 )
+__meta__ = { "_edit_lock_":true }
+
+[node name="timer" type="Timer" parent="."]
+
+process_mode = 1
+wait_time = 10.0
+one_shot = true
+autostart = true
+
+[node name="Sprite1" type="Sprite" parent="."]
+
+transform/pos = Vector2( 52.5, 193.375 )
+transform/scale = Vector2( 0.825, 0.825 )
+texture = ExtResource( 2 )
+
+[node name="madefor" type="Label" parent="."]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 0.0
+margin/top = 1.0
+margin/right = 143.0
+margin/bottom = 13.0
+custom_fonts/font = ExtResource( 3 )
+text = "Graphic Art"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="HBoxContainer" type="GridContainer" parent="."]
+
+focus/ignore_mouse = false
+focus/stop_mouse = false
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 39.0
+margin/top = 18.0
+margin/right = 298.0
+margin/bottom = 84.0
+columns = 1
+
+[node name="Graphic Art1" type="Label" parent="HBoxContainer"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 225.0
+margin/bottom = 10.0
+custom_fonts/font = ExtResource( 3 )
+text = "Blue Yeti Studios - OpenGameArt"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Label1" type="Label" parent="HBoxContainer"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 0.0
+margin/top = 14.0
+margin/right = 225.0
+margin/bottom = 24.0
+custom_fonts/font = ExtResource( 3 )
+text = "Clint Bellanger - OpenGameArt"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Label2" type="Label" parent="HBoxContainer"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 0.0
+margin/top = 28.0
+margin/right = 225.0
+margin/bottom = 38.0
+custom_fonts/font = ExtResource( 3 )
+text = "Daniel Cook - OpenGameArt"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Label3" type="Label" parent="HBoxContainer"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 0.0
+margin/top = 42.0
+margin/right = 225.0
+margin/bottom = 52.0
+custom_fonts/font = ExtResource( 3 )
+text = "MedicinStorm - OpenGameArt"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Label4" type="Label" parent="HBoxContainer"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 0.0
+margin/top = 56.0
+margin/right = 225.0
+margin/bottom = 66.0
+custom_fonts/font = ExtResource( 3 )
+text = "Surt - OpenGameArt"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Musi" type="Label" parent="."]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 0.0
+margin/top = 106.0
+margin/right = 143.0
+margin/bottom = 118.0
+custom_fonts/font = ExtResource( 3 )
+text = "Music and SFX"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="HBoxContainer1" type="GridContainer" parent="."]
+
+focus/ignore_mouse = false
+focus/stop_mouse = false
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 39.0
+margin/top = 123.0
+margin/right = 298.0
+margin/bottom = 141.0
+columns = 1
+
+[node name="Graphic Art1" type="Label" parent="HBoxContainer1"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 137.0
+margin/bottom = 10.0
+custom_fonts/font = ExtResource( 3 )
+text = "Nene - OpenGameArt"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="Sprite" type="Sprite" parent="."]
+
+transform/pos = Vector2( 260, 213 )
+texture = ExtResource( 4 )
+
+[connection signal="timeout" from="timer" to="." method="_on_timer_timeout"]
+
+
